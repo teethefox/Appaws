@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new mongoose.Schema({
-  name: {type: String, required: true},
+  fname: {type: String, required: true},
+  lname: {type: String, required: true},  
   email: {type: String, required: true},
   password: {type: String, required: true},  
   _animals: [{type: Schema.Types.ObjectId, ref: 'Animal'}]

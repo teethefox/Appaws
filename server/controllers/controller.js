@@ -11,9 +11,11 @@ module.exports = {
 
   createuser: function(req, res) {
     console.log("express create method");
-    console.log(req.body.name);
+    console.log(req.body.fname + req.body.lname);
     var user = new User({
-      name: req.body.name, 
+      fname: req.body.fname, 
+      lname: req.body.lname, 
+      
       email: req.body.email,
       password: req.body.password
 
@@ -32,21 +34,20 @@ module.exports = {
       }
     })
   },
-  createnote: function(req, res) {
+  createpagaent: function(req, res) {
     console.log("express create method");
     console.log("lol" + req.body);
     var created_at = new Date(); 
     
-    var notes = new Note({
-      question: req.body.question, 
-      content1: req.body.content1, 
-      content2: req.body.content2, 
-      content3: req.body.content3, 
-      content4: req.body.content4, 
+    var animal = new Note({
+      name: req.body.name, 
+      image: req.body.image, 
+      about: req.body.about, 
+   
       
     });
     
-    notes.save(function(err) {
+    animal.save(function(err) {
       if(err) {
         console.log('something went wrong');
         let errors = [];
@@ -60,8 +61,8 @@ module.exports = {
     })
   },
   show: function(req, res) {
-    Name.find({}, function (err, names){
-      res.json({"names": names});
+    User.find({}, function (err, names){
+      res.json({"users": users});
     })
    
 },
